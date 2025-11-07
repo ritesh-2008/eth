@@ -13,7 +13,7 @@ contract wallet is Ownable {
 
   event PurchasedTicket(address indexed buyer,uint ticketno, uint amount);
   event Refund(address indexed user,uint ticketno,uint amount);
-  event withdraw(address indexed , uint amount);
+  event withdraw(address indexed withdraweth , uint amount);
 
     struct Ticket {
        string name;
@@ -56,7 +56,7 @@ contract wallet is Ownable {
        
       emit Refund(msg.sender, TicketNo, eth);
     }
-
+      //  withdraw the eth
       function Withdraw() external onlyOwner {
       uint amount = address(this).balance;
       (bool sent,) =  payable(owner()).call{value: address(this).balance}("");

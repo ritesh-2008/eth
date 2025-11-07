@@ -28,7 +28,8 @@ contract wallet is Ownable {
        string memory _email,
        uint _phoneNo) payable public {
         require(msg.value == eth, "you have to pay exact amount of eth");
-        require(seats > 0);
+        require(seats > 0,"sets are full");
+        require(usertoTicket[msg.sender] == 0,"you already own a ticket");
         seats -=1;
         uint TicketNO = 100 - seats;
         

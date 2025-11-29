@@ -5,7 +5,7 @@ import "./ownable.sol";
 
 contract wallet is Ownable {
 //  declare price,no of seats and event date
- uint256 public eth = 0.001 ether;
+ uint256 public  eth = 0.001 ether;
  uint256 public ethforvip = 0.004 ether;
  uint256 public seats = 100;
  uint256  public vipseats = 50;
@@ -38,7 +38,7 @@ contract wallet is Ownable {
 // buy ticket here
     function payforticket(string memory _name,
        string memory _email,
-       uint _phoneNo) external  payable  {
+       uint _phoneNo) public   payable  {
         require(msg.value == eth, "you have to pay exact amount of eth");
         require(seats > 0,"seats are full");
         require(usertoTicket[msg.sender] == 0 && usertoVipTicket[msg.sender] == 0,"you already own a ticket");
@@ -166,7 +166,7 @@ contract wallet is Ownable {
 
 // set ticket prize of regular and vip
    function setticketprize(uint _ticket,uint _vipticket) external onlyOwner{
-    eth = _ticket;
+    eth  = _ticket;
     ethforvip = _vipticket;
    }
 

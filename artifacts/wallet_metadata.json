@@ -99,6 +99,25 @@
 				"type": "event"
 			},
 			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "user",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "ticketno",
+						"type": "uint256"
+					}
+				],
+				"name": "ticketinfo",
+				"type": "event"
+			},
+			{
 				"inputs": [
 					{
 						"internalType": "string",
@@ -122,6 +141,96 @@
 				"type": "function"
 			},
 			{
+				"inputs": [],
+				"name": "checkticket",
+				"outputs": [
+					{
+						"components": [
+							{
+								"internalType": "address",
+								"name": "buyer",
+								"type": "address"
+							},
+							{
+								"internalType": "string",
+								"name": "name",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "email",
+								"type": "string"
+							},
+							{
+								"internalType": "uint256",
+								"name": "phoneNo",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "ticketNo",
+								"type": "uint256"
+							},
+							{
+								"internalType": "bool",
+								"name": "refunded",
+								"type": "bool"
+							}
+						],
+						"internalType": "struct wallet.Ticket",
+						"name": "t",
+						"type": "tuple"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "checkticketvip",
+				"outputs": [
+					{
+						"components": [
+							{
+								"internalType": "address",
+								"name": "buyer",
+								"type": "address"
+							},
+							{
+								"internalType": "string",
+								"name": "name",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "email",
+								"type": "string"
+							},
+							{
+								"internalType": "uint256",
+								"name": "phoneNo",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "ticketNo",
+								"type": "uint256"
+							},
+							{
+								"internalType": "bool",
+								"name": "refunded",
+								"type": "bool"
+							}
+						],
+						"internalType": "struct wallet.Ticket",
+						"name": "t",
+						"type": "tuple"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
 				"inputs": [
 					{
 						"internalType": "uint256",
@@ -131,6 +240,11 @@
 				],
 				"name": "details",
 				"outputs": [
+					{
+						"internalType": "address",
+						"name": "buyer",
+						"type": "address"
+					},
 					{
 						"internalType": "string",
 						"name": "name",
@@ -150,6 +264,11 @@
 						"internalType": "uint256",
 						"name": "ticketNo",
 						"type": "uint256"
+					},
+					{
+						"internalType": "bool",
+						"name": "refunded",
+						"type": "bool"
 					}
 				],
 				"stateMutability": "view",
@@ -280,6 +399,63 @@
 			{
 				"inputs": [
 					{
+						"internalType": "uint256",
+						"name": "_eventdate",
+						"type": "uint256"
+					}
+				],
+				"name": "seteventdate",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_ticket",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_vipticket",
+						"type": "uint256"
+					}
+				],
+				"name": "setticketprize",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "soldticket",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "soldvipticket",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
 						"internalType": "address",
 						"name": "newOwner",
 						"type": "address"
@@ -339,6 +515,11 @@
 				"name": "vipdetails",
 				"outputs": [
 					{
+						"internalType": "address",
+						"name": "buyer",
+						"type": "address"
+					},
+					{
 						"internalType": "string",
 						"name": "name",
 						"type": "string"
@@ -357,6 +538,11 @@
 						"internalType": "uint256",
 						"name": "ticketNo",
 						"type": "uint256"
+					},
+					{
+						"internalType": "bool",
+						"name": "refunded",
+						"type": "bool"
 					}
 				],
 				"stateMutability": "view",
@@ -435,11 +621,11 @@
 	},
 	"sources": {
 		"contracts/new.sol": {
-			"keccak256": "0xc898185b8bf935e2f451aea6c61316bc3f09e7f1d1850b358267e9b243fcf2a9",
+			"keccak256": "0xf53227d83518081b24b43688845df8c497feb1e5ec4a72ba3aa4f11ef4fa55f1",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://b489c74224ce4691839b5c6a7408a437aa380686dbf6e63c0f69dfcbdd637ab6",
-				"dweb:/ipfs/QmY7DbC4mntGq6rAgZ2sku3Ts673dCTmi2UpPnD44mbymG"
+				"bzz-raw://dc7f04ed3586eb599a91696f42a4f78b0d09162cf1a0befa8c1968350a89db7f",
+				"dweb:/ipfs/QmNskkoohJu6iVwZR1wpxCLC7hkpobiti4ScRq9UiwEDax"
 			]
 		},
 		"contracts/ownable.sol": {

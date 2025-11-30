@@ -84,3 +84,20 @@ Supports both regular and VIP tickets, refund flows, user ticket data storage, a
 ```solidity
 payforticket("John", "john@mail.com", 9876543210)
 
+### 3. BuyVip Ticket
+```solidity
+Buyvipseats("Alice", "alice@mail.com", 9876512345)
+
+### 4. Refund (before event date)
+```solidity
+refund()
+refundforvip()
+
+### 5. Check Ticket Info
+```solidity
+checkticket()
+checkticketvip()
+
+### 6. Owner Withdraw (after event date)
+```solidity
+withdraw()

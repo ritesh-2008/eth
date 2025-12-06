@@ -166,8 +166,8 @@ contract wallet is Ownable {
 
 // set ticket prize of regular and vip
    function setticketprize(uint _ticket,uint _vipticket) external onlyOwner{
-    eth  = _ticket;
-    ethforvip = _vipticket;
+    eth  = _ticket * 1 ether;
+    ethforvip = _vipticket * 1 ether;
    }
 
 // set event date 
